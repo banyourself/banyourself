@@ -1,6 +1,5 @@
-<!-- Goes in a repo named exactly `banyourself`, as README.md at the root. GitHub renders it on your profile. -->
-<!-- Banner is built by tools/build_mc_banner.py in the banyourself.github.io repo.
-     No width attribute on purpose: it renders 1:1 at 876px so the pixels stay sharp. -->
+<!-- repo named exactly `banyourself`, as README.md at the root. -->
+<!-- Banner is built by tools/build_mc_banner.py in the banyourself.github.io repo -->
 
 <img src="https://banyourself.github.io/assets/img/mc-banner.gif" alt="Kevin Le, Security Operations and Cloud Security">
 
@@ -13,9 +12,7 @@
 ```
 
 It's fun looking for vulnerabilities in the games I play everyday just because
-it'll give me a challenge. I like to find flaws, check how it could be exploited
-and the impact it could cause, create a patch, and then report the vulnerability
-to put my name out there!
+it'll give me a challenge. I like to find flaws, scope the impact it can cause if exploited, create a patch, and then report the vulnerability to put my name out there!
 
 <p>
   <a href="https://banyourself.github.io"><img src="https://img.shields.io/badge/PORTFOLIO-9c2b21?style=for-the-badge" alt="Portfolio"></a>
