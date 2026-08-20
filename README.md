@@ -69,6 +69,231 @@ did. The interesting ones didn't.
 **Scope:** all testing against my own local servers. Reported privately to
 maintainers before publishing anything.
 
+<details>
+<summary><b>Full packet appendix</b> &nbsp;·&nbsp; every one of the 211 packets, all 64 mods</summary>
+
+<br>
+
+Sorted by severity, then mod. `crit` and `high` are the ones a client can actually send.
+Channel names and fully-qualified handler classes are on the site, they were too wide for
+a table here.
+
+| Mod | Packet | Sev | What it can do |
+|:--|:--|:--|:--|
+| ChunkPregenerator | `ChunkRequest` | **crit** | Read-only request for a chunk's generation state; |
+| ChunkPregenerator | `DeletionTaskPacket` | **crit** | Starts a `DeleteProcessor` task deleting an arbitrary region of chunks (deletes chunk data). |
+| ChunkPregenerator | `DimensionTaskPacket` | **crit** | DELETE ENTIRE DIMENSION FILES: with `unload=true` unloads a dimension; |
+| ChunkPregenerator | `DimRequestPacket` | **crit** | Read-only query. |
+| ChunkPregenerator | `EntityRequestPacket` | **crit** | Read-only request for entity data in a chunk; |
+| ChunkPregenerator | `KillRequest` | **crit** | Kills ALL entities of an arbitrary registry name in the chunk at (x,z) via `setDead()`, or breaks all... |
+| ChunkPregenerator | `KillWorldRequest` | **crit** | Kills ALL entities (by registry class) or breaks ALL tile-entities (by registry class) in an entire dimension... |
+| ChunkPregenerator | `ManualTaskPacket` | **crit** | Interrupts/starts generation tasks on the server `ChunkProcessor`/`DeleteProcessor`. |
+| ChunkPregenerator | `MassPregenTaskPacket` | **crit** | Starts a mass chunk-pregen task (shape/dim/center/radius/split/genType) → massive chunk generation → server... |
+| ChunkPregenerator | `PermissionRequestPacket` | **crit** | Read-only query. |
+| ChunkPregenerator | `PregenTaskPacket` | **crit** | Starts a chunk-pregen task (type/dim/middle/radiusX/radiusZ/postProc) → chunk generation. |
+| ChunkPregenerator | `ProcessRequestPacket` | **crit** | Read-only query of the server's generation/deletion processor state. |
+| ChunkPregenerator | `RemoveStructurePacket` | **crit** | Deletes a structure (by `type` string, e.g. |
+| ChunkPregenerator | `RetrogenChangePacket` | **crit** | Server-side enable/disable a retrogen generator by `id` string (`RetrogenHandler.enableGenerator/disableGenera... |
+| ChunkPregenerator | `RetrogenCheckPacket` | **crit** | Read-only query of retrogen generator state; |
+| ChunkPregenerator | `StructureRequestPacket` | **crit** | Read-only query/handshake for the structure-manager UI browse. |
+| ChunkPregenerator | `TPChunkPacket` | **crit** | Teleports the sender to an arbitrary (x,z) in the sender's own dimension. |
+| ChunkPregenerator | `TrackerRequestPacket` | **crit** | Read-only query for the server's chunk-generation tracker state; |
+| Grappling Hook (grapplemod) | `GrappleEndMessage` | **crit** | A client sends an entityId and a set of arrowIds. |
+| Grappling Hook (grapplemod) | `GrappleModifierMessage` | **crit** | A client sends a BlockPos and a `GrappleCustomization`. |
+| Grappling Hook (grapplemod) | `PlayerMovementMessage` | **crit** | A client sends an entityId + position (x,y,z) + velocity (mx,my,mz). |
+| RecurrentComplex | `PacketEditTileEntity` | **crit** | The headline primitive: a client sends `PacketEditTileEntity` (disc 5, Side.SERVER) with a BlockPos + NBT. |
+| RecurrentComplex | `PacketOpenGui` | **crit** | A client sends a modId + guiId + data. |
+| RecurrentComplex | `PacketSpawnTweaks` | **crit** | A client sends a `TObjectFloatMap<String>` of spawn-tweak values. |
+| RecurrentComplex | `PacketWorldData` | **crit** | A client sends a `worldData` NBT + source + two capture points. |
+| Trinkets & Baubles | `EffectsRenderPacket` | **crit** | A client sends an entityID + effectID + color + coords. |
+| Trinkets & Baubles | `IncreasedReachPacket` | **crit** | A client sends an entityID + hand + targetEntityID + xyz. |
+| Trinkets & Baubles | `KeybindPacket` | **crit** | A client sends an entityID + ability + key state. |
+| Trinkets & Baubles | `MovementKeyPacket` | **crit** | A client sends an entityID + key + state. |
+| Trinkets & Baubles | `OpenTrinketGui` | **crit** | A client sends a guiID. |
+| Trinkets & Baubles | `SyncItemDataPacket` | **crit** | A client sends an entityID + slot + handler + ItemStack. |
+| Trinkets & Baubles | `SyncRaceDataPacket` | **crit** | A client sends an entityID + NBT. |
+| AutoRegLib | `MessageDropIn` | high | Executes a `DropInHandler.executeDropIn(player, slot, stack)` on the sender's server thread with a... |
+| AutoRegLib | `TileEntityMessage` | high | Not actually client-sendable - `TileEntityMessage` is an abstract base class that is never registered itself; |
+| CollisionDamage | `PacketCollisionS` | high | A client sends an `accel` double. |
+| ElenaiDodge | `SDodgeMessage` | high | A client sends a `dir` string and `cooldown` int. |
+| FantasticLib | `ControlEventPacket` | high | A client sends a `ControlEvent` (name, state, lastState, identifier). |
+| Fish's Undead Rising | `PacketMountSpecial` | high | Looks up any entity by client-supplied entity ID (`world.func_73045_a(message.Id)`), then spawns 8... |
+| Ice and Fire | `MessageDaytime` | high | `MessageDaytime.onServerReceived`, no impact note recorded |
+| Ice and Fire | `MessageDeathWormHitbox` | high | `MessageDeathWormHitbox.onServerReceived`, no impact note recorded |
+| Ice and Fire | `MessageDragonArmor` | high | A client sends a dragonId + armor_index + armor_type. |
+| Ice and Fire | `MessageDragonControl` | high | A client sends a dragonId + controlState + posX/Y/Z. |
+| Ice and Fire | `MessageGetMyrmexHive` | high | `MessageGetMyrmexHive.onServerReceived`, no impact note recorded |
+| Ice and Fire | `MessageHippogryphArmor` | high | A client sends a dragonId + slot_index + armor_type. |
+| Ice and Fire | `MessageMultipartInteract` | high | A client sends a creatureID + dmg. |
+| Ice and Fire | `MessagePlayerHitMultipart` | high | A client sends a creatureID. |
+| Ice and Fire | `MessageSetMyrmexHiveNull` | high | `MessageSetMyrmexHiveNull.onServerReceived`, no impact note recorded |
+| Ice and Fire | `MessageSirenSong` | high | Client-sendable (registered on both sides via llibrary `AbstractMessage.registerOnSide` → true). |
+| Ice and Fire | `MessageStoneStatue` | high | A client sends an entityId + isStone. |
+| Ice and Fire | `MessageUpdatePixieHouse` | high | `MessageUpdatePixieHouse.onServerReceived`, no impact note recorded |
+| Ice and Fire | `MessageUpdatePixieHouseModel` | high | No server-side effect. |
+| Ice and Fire | `MessageUpdatePixieJar` | high | no server-side effect. |
+| Ice and Fire | `MessageUpdatePodium` | high | no server-side effect. |
+| InventoryTweaks | `ITPacketClick` | high | A client sends a slot + data + ClickType + window. |
+| ItemPhysic | `DropPacket` | high | A client sends a `power` int. |
+| ItemPhysic | `PickupPacket` | high | A client sends a UUID + rightClick. |
+| Level Up! 2 | `ClassChangePacket` | high | Client picks its own class/specialization (mining/craft/combat bonus). |
+| Level Up! 2 | `SkillsPacket` | high | A client sends a button + levelSpend + skill data. |
+| MultiMine | `PartialBlockPacket` | high | A client sends a username + x,y,z + value + regenerating. |
+| NuclearCraft | `ClearAllFluidsPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `EmptyTankPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `OpenGuiPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `OpenSideConfigGuiPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `OpenTileGuiPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ResetItemSorptionsPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ResetTankSorptionsPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleAlternateComparatorPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleInputTanksSeparatedPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleItemOutputSettingPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleItemSorptionPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleRedstoneControlPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleTankOutputSettingPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleTankSorptionPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleVoidExcessFluidOutputPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| NuclearCraft | `ToggleVoidUnusableFluidInputPacket` | high | If the tile at a client-chosen BlockPos is an `IMultiblockPart` whose multiblock is `IMultiblockFluid`, calls... |
+| PotionCore | `CToSMessage` | high | A client sends a raw byte payload with a type discriminator. |
+| QualityTools | `CToSMessage` | high | A client sends a type discriminator + BlockPos + dimension. |
+| Quark | `MessageChangeConfig` | high | Not actually client-sendable - registered as `Side.CLIENT` (MessageRegister.java:60), so it is server→client... |
+| Quark | `MessageChangeHotbar` | high | Client sends a bar index (1-3); |
+| Quark | `MessageDeleteItem` | high | Client sends a slot index; |
+| Quark | `MessageDropoff` | high | Client triggers a dropoff of the player's inventory into nearby chests. |
+| Quark | `MessageMatrixEnchanterOperation` | high | Client sends an operation + 3 args; |
+| Quark | `MessageRequestEmote` | high | A client sends an emoteName. |
+| RebornCore | `PacketButtonID` | high | A client sends a BlockPos + ID. |
+| RebornCore | `PacketConfigSave` | high | A client sends a BlockPos + NBT slot config. |
+| RebornCore | `PacketFluidConfigSave` | high | A client sends a BlockPos + fluid config NBT. |
+| RebornCore | `PacketFluidIOSave` | high | A client sends a BlockPos + input/output booleans. |
+| RebornCore | `PacketIOSave` | high | A client sends a BlockPos + slotID + input/output/filter booleans. |
+| RebornCore | `PacketSlotSave` | high | A client sends a BlockPos + slot config NBT. |
+| Reskillable | `InvalidateRequirementPacket` | high | A client sends a UUID + cacheTypes. |
+| Reskillable | `MessageDataSync` | high | `Side.CLIENT` (server→client only) - not client-sendable. |
+| Reskillable | `MessageDodge` | high | A client sends an empty MessageDodge. |
+| Reskillable | `MessageLockedItem` | high | `Side.CLIENT` (server→client only) - not client-sendable. |
+| RLArtifacts | `PacketBottledCloudJump` | high | A client sends an isFart boolean. |
+| RLCombat | `PacketMainhandAttack` | high | A client sends an entityId + motion. |
+| RLCombat | `PacketOffhandAttack` | high | Same as PacketMainhandAttack but for the offhand - a client sends an entityId + motion and the server attacks... |
+| SimpleDifficulty | `MessageConfigLAN` | high | A client sends an empty MessageConfigLAN. |
+| SpartanWeaponry | `PacketKeyHandle` | high | Client opens the quiver GUI for the sender's own quiver (hotbar or bauble slot). |
+| SpartanWeaponry | `PacketLongReachAttack` | high | A client sends an entityId + velocity. |
+| Varied Commodities | `SAVE_BOOK` | high | Client sends a `BlockPos` + NBT book; |
+| Varied Commodities | `SAVE_SIGN` | high | Client sends a `BlockPos` + text; |
+| Varied Commodities | `TRADE_ACCEPT` | high | A client sends a TRADE_ACCEPT packet. |
+| WolfArmorAndStorage | `WolfDropChestMessage` | high | A client sends an entityId. |
+| Antique Atlas Auto Marker | `AddedStructureMarkersPacket` | med | Takes a client-supplied `atlasID`, `dimension`, and a list of `Marker`s (id, type, label, x, z, visibleAhead)... |
+| CarbonConfig | `BulkSyncPacket` | med | Same as `SyncPacket` but for a batch of config entries - deserializes client-supplied config entries into a... |
+| CarbonConfig | `SyncPacket` | med | Same as `SyncPacket` but for a batch of config entries - deserializes client-supplied config entries into a... |
+| firstaid | `MessageApplyHealingItem` | med | Client picks a body part + hand; |
+| firstaid | `MessageClientRequest` | med | Client sends a `Type` byte. |
+| FishingMadeBetter | `PacketKeybindS` | med | Client sets its own fishing keybind (REEL_IN / REEL_OUT) while fishing. |
+| InfernalMobs | `MobModsPacket` | med | Client sends an entity ID; |
+| librarianlib | `PacketSyncSlotVisibility` | med | Client sends a `boolean[]` visibility mask; |
+| Lycanites Mobs | `MessageBeastiary` | med | client-bound; |
+| Lycanites Mobs | `MessageCreature` | med | client-boundary. |
+| Lycanites Mobs | `MessageCreatureKnowledge` | med | client-boundary. |
+| Lycanites Mobs | `MessageEntityPerched` | med | client-boundary. |
+| Lycanites Mobs | `MessageEntityPickedUp` | med | client-boundary. |
+| Lycanites Mobs | `MessageEntityVelocity` | med | client-boundary. |
+| Lycanites Mobs | `MessageGUIRequest` | med | `MessageGUIRequest.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessageMobEvent` | med | client-boundary. |
+| Lycanites Mobs | `MessagePetEntry` | med | `MessagePetEntry.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessagePetEntryRemove` | med | `MessagePetEntryRemove.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessagePlayerAttack` | med | Client sends an entity ID; |
+| Lycanites Mobs | `MessagePlayerControl` | med | Client sends a byte of control states; |
+| Lycanites Mobs | `MessagePlayerLeftClick` | med | Client triggers the left-click action of the equipment item in the sender's active hand. |
+| Lycanites Mobs | `MessagePlayerStats` | med | client-boundary. |
+| Lycanites Mobs | `MessageSummoningPedestalStats` | med | client-boundary. |
+| Lycanites Mobs | `MessageSummoningPedestalSummonSet` | med | Client sends a summon-set (type/subspecies/variant/behavior) + arbitrary `BlockPos`; |
+| Lycanites Mobs | `MessageSummonSet` | med | `MessageSummonSet.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessageSummonSetSelection` | med | `MessageSummonSetSelection.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessageSyncRequest` | med | `MessageSyncRequest.onMessage`, no impact note recorded |
+| Lycanites Mobs | `MessageTileEntityButton` | med | Client sends a button ID + arbitrary `BlockPos`; |
+| Lycanites Mobs | `MessageWorldEvent` | med | client-boundary. |
+| Mantle | `PacketUpdateSavedPage` | med | Client sends a page name; |
+| Painting Select GUI | `SPacketPainting` | med | Looks up any entity by client-supplied entity ID (`player.world.func_73045_a(packet.id)`); |
+| Quark R1.6-179 | `MessageRequestPassengerChest` | med | Client requests the chest-inventory of a `EntityChestPassenger` riding the sender's boat. |
+| Quark R1.6-179 | `MessageRestock` | med | Client triggers a restock of the player's inventory from nearby chests. |
+| Quark R1.6-179 | `MessageSortInventory` | med | Client sorts the player's inventory. |
+| SpartanShields | `PacketShieldBash` | med | Client sends a hand + entity ID + attack flag; |
+| SRParasites | `SRPPacketBiomeChange` | med | client-boundary. |
+| SRParasites | `SRPPacketEntityBodyDead` | med | client-boundary. |
+| SRParasites | `SRPPacketEntityBodyHit` | med | Client sends a target ID + part ID; |
+| SRParasites | `SRPPacketFog` | med | client-boundary. |
+| SRParasites | `SRPPacketMeleeRange` | med | Client sends an entity ID; |
+| SRParasites | `SRPPacketMovingSound` | med | client-boundary. |
+| SRParasites | `SRPPacketParticle` | med | client-boundary. |
+| Waystones | `MessageRemoveWaystone` | med | Client sends an index; |
+| Waystones | `MessageSortWaystone` | med | Client sends two indices; |
+| Antique Atlas | `AddMarkerPacket` | low | Creates a marker on the sender's atlas at a client-supplied position and broadcasts a `MarkersPacket` to all... |
+| Antique Atlas | `DeleteMarkerPacket` | low | Registered on both sides (bidirectional). |
+| Antique Atlas | `GridPositionPacket` | low | This packet does NOT exist. |
+| Antique Atlas | `PutBiomeTilePacket` | low | Registered on both sides. |
+| Antique Atlas | `RegisterTileIdPacket` | low | Client sends an arbitrary tile-name string; |
+| Baubles | `PacketOpenBaublesInventory` | low | `Side.SERVER` (disc 0). |
+| Baubles | `PacketOpenNormalInventory` | low | `Side.SERVER` (disc 1). |
+| BetterQuesting | `chapter_sync` | low | Client requests chapter (quest-line) config sync; |
+| BetterQuesting | `main_sync` | low | Client requests a full questing-data sync; |
+| BetterQuesting | `name_sync` | low | Client sends a list of UUIDs and/or player names; |
+| BetterQuesting | `party_sync` | low | Client requests party data; |
+| BetterQuesting | `quest_action` | low | Client sends `action` (0=claim, 1=detect) plus an array of `questIDs`. |
+| BetterQuesting | `quest_sync` | low | Client requests quest config/progress sync for a set of quest IDs. |
+| Callable Horses | `PressKeyPacket` | low | `Side.SERVER` (disc 0). |
+| Carry On | `SyncKeybindPacket` | low | `Side.SERVER` (disc 0). |
+| CD4017BE lib | `SyncNetworkHandler.handlePlayerPacket` | low | Deprecated generic dispatch. |
+| Classy Hats | `PacketHatGuiOpen` | low | Opens the hat GUI for the sender with a client-supplied `target` int. |
+| Classy Hats | `PacketSyncLastSelectedSection` | low | Sets the sender's `CapabilityHatContainer` current-hat-section to a client int. |
+| Dynamic Surroundings | `PacketEntityData` | low | `Side.CLIENT` (server→client, disc 3) - NOT client-sendable. |
+| Dynamic Surroundings | `PacketEnvironment` | low | `Side.CLIENT` (disc 5) - NOT client-sendable. |
+| Dynamic Surroundings | `PacketServerData` | low | `Side.CLIENT` (disc 6) - NOT client-sendable. |
+| Dynamic Surroundings | `PacketSpeechBubble` | low | `Side.CLIENT` (disc 2) - NOT client-sendable. |
+| Dynamic Surroundings | `PacketThunder` | low | `Side.CLIENT` (disc 4) - NOT client-sendable. |
+| Dynamic Surroundings | `PacketWeatherUpdate` | low | `Side.CLIENT` (disc 1) - NOT client-sendable. |
+| EnhancedVisuals | `DamagePacket` | low | Client-bound visual packet. |
+| EnhancedVisuals | `ExplosionPacket` | low | Client-bound visual packet. |
+| EnhancedVisuals | `PotionPacket` | low | Client-bound visual packet. |
+| Grappling Hook | `DetachSingleHookMessage` | low | `DetachSingleHookMessage.Handler.onMessage`, no impact note recorded |
+| Grappling Hook | `GrappleAttachMessage` | low | Not actually client-sendable - registered `Side.CLIENT` (`grapplemod.java:342`). |
+| Grappling Hook | `GrappleAttachPosMessage` | low | `GrappleAttachPosMessage.Handler`, no impact note recorded |
+| Grappling Hook | `GrappleDetachMessage` | low | Not actually client-sendable (Side.CLIENT, `grapplemod.java:348`). |
+| Grappling Hook | `LoggedInMessage` | low | `LoggedInMessage.Handler`, no impact note recorded |
+| Grappling Hook | `SegmentMessage` | low | `SegmentMessage.Handler`, no impact note recorded |
+| iChunUtil | `PacketEntityLocation` | low | Not actually live in this pack - the `iChun_WorldPortals` channel is only created if some mod calls the... |
+| iChunUtil | `PacketPatronInfo` | low | Adds/removes a `PatronInfo` (playerId / patronRewardType / showPatronReward) to the server's patron list and... |
+| iChunUtil | `PacketPatrons` | low | NOT client-sendable. |
+| iChunUtil | `PacketRequestBlockEntityData` | low | Read-only info request. |
+| Inspirations | `InventorySlotSyncPacket` | low | `Side.CLIENT` (`registerPacketClient`, `InspirationsNetwork.java:43`) - NOT client-sendable. |
+| Inspirations | `MilkablePacket` | low | `Side.CLIENT` - NOT client-sendable. |
+| Inspirations | `RenderBlockUpdatePacket` | low | `Side.CLIENT` - NOT client-sendable. |
+| IvToolkit | `PacketGuiAction` | low | Not actually client-sendable in this pack - IvToolkit itself registers NO network channel, and no mod in the... |
+| IvToolkit | `PacketTileEntityClientEvent` | low | Not client-sendable in this pack - same as PacketGuiAction, library-only with no in-pack registration. |
+| llibrary | `SurvivalTabMessage` | low | Client-sendable (registered on both sides). |
+| Locks | `CheckPinPacket` | low | `Side.SERVER` (disc 3). |
+| Lost Cities | `PacketRequestProfile` | low | `Side.SERVER`. |
+| MmmMmmMmmMmm | `DamageMessage` | low | client-boundary. |
+| MmmMmmMmmMmm | `SyncEquipmentMessage` | low | client-boundary. |
+| MoBends | `MessageConfigResponse` | low | `Side.CLIENT` (server→client only) - not client-sendable. |
+| MoBends | `MessageViewRequest` | low | This packet does not exist. |
+| Reach Fix | `CPacketHandlerSyncConfig` | low | `Side.CLIENT` (registered `ReachFix.java:69`) - NOT client-sendable. |
+| Rustic | `MessageDismountChair` | low | `Side.SERVER` (disc 2). |
+| Rustic | `MessageVaseMeta` | low | `Side.SERVER` (disc 1). |
+| ScalingHealth | `MessageDataSync` | low | client-boundary. |
+| ScalingHealth | `MessageDebugData` | low | client-boundary. |
+| ScalingHealth | `MessageMarkBlight` | low | client-boundary. |
+| ScalingHealth | `MessagePlaySound` | low | client-boundary. |
+| ScalingHealth | `MessageWorldDataSync` | low | client-boundary. |
+| Serene Seasons | `MessageSyncConfigs` | low | `Side.CLIENT` (disc 4) - NOT client-sendable. |
+| Serene Seasons | `MessageSyncSeasonCycle` | low | `MessageSyncSeasonCycle.onMessage`, no impact note recorded |
+| SilentLib | `MessageLeftClick` | low | Client-sendable (`Side.SERVER`, registered in `SilentLib.preInit`). |
+| Standard Expansion | `choice_reward` | low | A client picks a `selection` index for a `RewardChoice` reward; |
+| Standard Expansion | `task_checkbox` | low | Client sends `questID`/`taskID`; |
+| Standard Expansion | `task_interact` | low | Client sends `isMainHand`/`isHit`; |
+| Wearable Backpacks | `MessageOpenBackpack` | low | `Side.SERVER` (disc 3). |
+
+</details>
+
 → [Read the full writeups](https://banyourself.github.io/#/case/MC-001)
 
 </details>
