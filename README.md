@@ -38,12 +38,12 @@ how to fix it, and who I told. Full versions live on the
 
 <br>
 
-Decompiled 400+ Forge mods that other mods depend on, or that ship inside
-shipped inside modpacks totalling 50M+ downloads on CurseForge, Modrinth,
-and other modded minecraft loaders. Through my own analysis, I was able to discover
-numerous packets with no permission gate that nobody had reported, which might be
-a simple overlook but it can be severely exploited to cause chaos by users with
-malicious intent.
+Decompiled 400+ Forge mods, the ones other mods depend on or that ship inside
+modpacks totaling 50M+ downloads on CurseForge, Modrinth, and other modded
+Minecraft loaders. Digging through them myself, I found 211 packets with no
+permission gate that nobody had reported. Most of it looks like stuff that just
+got missed, one handler gated and the one right next to it not. That's still
+enough for anyone with bad intent to walk onto a server and wreck it.
 
 Every one of these is the same weakness, **CWE-862 Missing Authorization**: a handler
 registered on `Side.SERVER` that acts on whatever the client sent without checking whether
@@ -623,7 +623,7 @@ with a picture of certificate attached to each one as authentication.
 ## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> ARSENAL
 
 Color is the grade, not decoration. Green means I built or broke something real with
-it, amber means I'm mid-way and would still reach for docs, grey means I've started and
+it, amber means I'm mid-way and would still reach for docs, gray means I've started and
 that's all. No badge here is aspirational.
 
 **DETECTION & MONITORING**
@@ -742,11 +742,11 @@ that's all. No badge here is aspirational.
 
 ## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> DISCLOSURE ETHICS
 
-Everything accomplished above was done within my own systems without compromising any
-external devices, participating in illegal activities, or with malicious intent. All
-findings get reported to the developer or maintainer first, and any further testing I
-do afterwards stays private and is only for documentation. It all gets redacted until a patch is deployed for the
-vulnerability or when I get permission from the developer/maintainer themselves.
+All of this ran on my own systems. I never touched an external device, never did
+anything illegal, and never went in with bad intent. Findings go to the developer or
+maintainer first. Anything I test after that stays private and exists only as
+documentation, and it stays redacted until a patch ships or the maintainer tells me
+I can publish.
 
 ```
 ════════════════════════════════════════════════════════════
