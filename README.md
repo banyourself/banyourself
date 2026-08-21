@@ -36,7 +36,7 @@ how to fix it, and who I told. Full versions live on the
 <br>
 
 Decompiled 400+ Forge mods, the ones other mods depend on or that ship inside
-modpacks totaling 30M+ downloads on CurseForge, Modrinth, and other modded
+modpacks totaling 30M+ downloads on CurseForge and other modded
 Minecraft loaders. Digging through them myself, I found 211 packets with no
 permission gate that nobody had reported. Most of it looks like stuff that just
 got missed, one handler gated and the one right next to it not. That's still
