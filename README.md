@@ -721,7 +721,7 @@ that's all. No badge here is aspirational.
 - [x] Microsoft SC-200 & SC-500
 - [x] Segmented home lab standing, attacks run against it, detections logged
 - [x] Pi-hole sinkhole live network-wide, including what it misses
-- [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *30M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. Around 50+ mods found with vulnerabilities that can be exploited, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
+- [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *30M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. 64 mods and 211 total ungated packets found, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
 
 **In progress**
 
