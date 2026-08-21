@@ -36,7 +36,7 @@ how to fix it, and who I told. Full versions live on the
 <br>
 
 Decompiled 400+ Forge mods, the ones other mods depend on or that ship inside
-modpacks totaling 50M+ downloads on CurseForge, Modrinth, and other modded
+modpacks totaling 30M+ downloads on CurseForge, Modrinth, and other modded
 Minecraft loaders. Digging through them myself, I found 211 packets with no
 permission gate that nobody had reported. Most of it looks like stuff that just
 got missed, one handler gated and the one right next to it not. That's still
@@ -721,7 +721,7 @@ that's all. No badge here is aspirational.
 - [x] Microsoft SC-200 and SC-500
 - [x] Segmented home lab standing, attacks run against it, detections logged
 - [x] Pi-hole sinkhole live network-wide, including what it misses
-- [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *50M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. Around 50+ mods found with vulnerabilities that can be exploited, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
+- [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *30M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. Around 50+ mods found with vulnerabilities that can be exploited, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
 
 **In progress**
 
