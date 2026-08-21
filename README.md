@@ -26,7 +26,7 @@ it'll give me a challenge. I like to find flaws, scope the impact it can cause i
 
 ## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
 
-Four bodies of work. Each one written up properly: what I found, why it happened,
+Five bodies of work. Each one written up properly: what I found, why it happened,
 how to fix it, and who I told. Full versions live on the
 **[portfolio](https://banyourself.github.io)**.
 
