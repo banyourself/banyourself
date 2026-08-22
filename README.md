@@ -49,10 +49,17 @@ what the packet actually lets you do.
 
 | Severity | Mods | Packets | What it means | Status |
 |:--|:--|:--|:--|:--|
-| **Critical** | 4 | 32 | Wipes a whole dimension, or reaches level-2 command execution | Reported, fix committed |
+| **Critical** | 4 | 32 | Wipes a whole dimension, or reaches level-2 command execution | **1 of 4 shipped and credited**, rest reported |
 | High | 22 | 71 | Changes any entity or tile by ID, arbitrary teleport, or attack with no reach check | Reported, fix committed |
 | Medium | 13 | 44 | Self-contained or read-only, but the gate is still missing | Reported, fix committed |
 | Low | 25 | 64 | `Side.CLIENT` so a client cannot send it, a no-op handler, or self-only | Reported, fix committed |
+
+**Trinkets & Baubles shipped the fix and credited me.** Version 0.33.4 went out on
+2026-08-21 crediting "KL BanYourself" for reporting the packet exploits, and the same
+commit hardened `SyncItemDataPacket`, the exact handler I reported. Verify it on the
+[CurseForge release](https://www.curseforge.com/minecraft/mc-mods/trinkets-and-baubles/files/8703456)
+or in [commit e07d279](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a).
+That mod has 20M+ downloads on its own.
 
 The low tier matters as much as the top one. Most of those turned out to be registered
 server-to-client, which means a client cannot forge them at all, and calling those
