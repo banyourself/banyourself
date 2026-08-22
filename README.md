@@ -61,6 +61,12 @@ commit hardened `SyncItemDataPacket`, the exact handler I reported. Verify it on
 or in [commit e07d279](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a).
 That mod has 20M+ downloads on its own.
 
+<img src="https://banyourself.github.io/assets/img/trinkets-credit-github.webp" alt="The commit adding KL BanYourself to the mod credits in mcmod.info">
+
+<img src="https://banyourself.github.io/assets/img/trinkets-credit-curseforge.webp" alt="CurseForge release notes for 0.33.4, crediting the packet exploit report and hardening the network packets">
+
+<img src="https://banyourself.github.io/assets/img/trinkets-credit-discord.webp" alt="The maintainer's reply the same day the report was sent">
+
 The low tier matters as much as the top one. Most of those turned out to be registered
 server-to-client, which means a client cannot forge them at all, and calling those
 vulnerabilities would have been wrong.
