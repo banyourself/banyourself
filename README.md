@@ -19,7 +19,7 @@ it'll give me a challenge. I like to find flaws, scope the impact it can cause i
   <a href="https://www.linkedin.com/in/kevin-le-cyber"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge" alt="LinkedIn"></a>
   <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-FF6B00?style=for-the-badge&logo=credly&logoColor=white" alt="Credly"></a>
   <a href="mailto:publicusekevin@gmail.com"><img src="https://img.shields.io/badge/GMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"></a>
-  <a href="https://banyourself.github.io/assets/Kevin_Le_Resume.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
+  <a href="https://banyourself.github.io/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
 </p>
 
 ---
