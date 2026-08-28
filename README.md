@@ -1,7 +1,7 @@
 <!-- repo named exactly `banyourself`, as README.md at the root. -->
-<!-- Banner is built by tools/build_mc_banner.py in the banyourself.github.io repo -->
+<!-- Banner is built by tools/build_mc_banner.py in the kevinle.tech repo -->
 
-<img src="https://banyourself.github.io/assets/img/mc-banner.gif" alt="Kevin Le, Security Operations and Cloud Security">
+<img src="https://kevinle.tech/assets/img/mc-banner.gif" alt="Kevin Le, Security Operations and Cloud Security">
 
 ```
   SUBJECT .............. Le, Kevin · @banyourself
@@ -15,20 +15,20 @@ It's fun looking for vulnerabilities in the games I play everyday just because
 it'll give me a challenge. I like to find flaws, scope the impact it can cause if exploited, create a patch, and then report the vulnerability to put my name out there!
 
 <p>
-  <a href="https://banyourself.github.io"><img src="https://img.shields.io/badge/PORTFOLIO-9c2b21?style=for-the-badge" alt="Portfolio"></a>
+  <a href="https://kevinle.tech"><img src="https://img.shields.io/badge/PORTFOLIO-9c2b21?style=for-the-badge" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/kevin-le-cyber"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge" alt="LinkedIn"></a>
   <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-FF6B00?style=for-the-badge&logo=credly&logoColor=white" alt="Credly"></a>
   <a href="mailto:publicusekevin@gmail.com"><img src="https://img.shields.io/badge/GMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"></a>
-  <a href="https://banyourself.github.io/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
+  <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
 </p>
 
 ---
 
-## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
+## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
 
 Five bodies of work. Each one written up properly: what I found, why it happened,
 how to fix it, and who I told. Full versions live on the
-**[portfolio](https://banyourself.github.io)**.
+**[portfolio](https://kevinle.tech)**.
 
 <details>
 <summary><b>CASE FILE 001 &nbsp;·&nbsp; Modded Minecraft - Missing Packet Authorization</b> &nbsp;<code>vuln research</code></summary>
@@ -61,11 +61,11 @@ commit hardened `SyncItemDataPacket`, the exact handler I reported. Verify it on
 or in [commit e07d279](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a).
 That mod has 20M+ downloads on its own.
 
-<img src="https://banyourself.github.io/assets/img/trinkets-credit-github.webp" alt="The commit adding KL BanYourself to the mod credits in mcmod.info">
+<img src="https://kevinle.tech/assets/img/trinkets-credit-github.webp" alt="The commit adding KL BanYourself to the mod credits in mcmod.info">
 
-<img src="https://banyourself.github.io/assets/img/trinkets-credit-curseforge.webp" alt="CurseForge release notes for 0.33.4, crediting the packet exploit report and hardening the network packets">
+<img src="https://kevinle.tech/assets/img/trinkets-credit-curseforge.webp" alt="CurseForge release notes for 0.33.4, crediting the packet exploit report and hardening the network packets">
 
-<img src="https://banyourself.github.io/assets/img/trinkets-credit-discord.webp" alt="The maintainer's reply the same day the report was sent">
+<img src="https://kevinle.tech/assets/img/trinkets-credit-discord.webp" alt="The maintainer's reply the same day the report was sent">
 
 The low tier matters as much as the top one. Most of those turned out to be registered
 server-to-client, which means a client cannot forge them at all, and calling those
@@ -304,7 +304,7 @@ a table here.
 
 </details>
 
-→ [Read the full writeups](https://banyourself.github.io/#/case/MC-001)
+→ [Read the full writeups](https://kevinle.tech/#/case/MC-001)
 
 </details>
 
@@ -473,7 +473,7 @@ guarding only `player_spawn` left the round-start loop still granting protection
 
 Every fork is published with credits to the original author to the best of my abilities. I run every single one of these SourcePawn plugins on two CS:GO servers (NA/EU), and I help manage an active CS2 network at [edan.gg](https://edan.gg/).
 
-→ [Read the full writeups](https://banyourself.github.io/#/case/CS-002)
+→ [Read the full writeups](https://kevinle.tech/#/case/CS-002)
 
 </details>
 
@@ -562,7 +562,7 @@ free.
 
 `Network Configuration` · `DNS & Domains` · `Load Balancing` · `Performance Configuration` · `Proxmox` · `Cloudflare`
 
-→ [Read the full writeups](https://banyourself.github.io/#/case/SRV-003)
+→ [Read the full writeups](https://kevinle.tech/#/case/SRV-003)
 
 </details>
 
@@ -577,7 +577,7 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
 
 `Proxmox` · `pfSense` · `Suricata` · `Windows Server` · `Kali`
 
-→ [Topology and detection log](https://banyourself.github.io/#/case/LAB-004)
+→ [Topology and detection log](https://kevinle.tech/#/case/LAB-004)
 
 </details>
 
@@ -594,13 +594,13 @@ Also documented honestly: what it does **not** catch. DoH walks straight past it
 
 `Raspberry Pi` · `Pi-hole` · `Unbound` · `DNS`
 
-→ [What the logs showed](https://banyourself.github.io/#/case/DNS-005)
+→ [What the logs showed](https://kevinle.tech/#/case/DNS-005)
 
 </details>
 
 ---
 
-## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CREDENTIALS
+## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CREDENTIALS
 
 <!-- LinkedIn carries more than this. Nothing here should contradict it. -->
 
@@ -630,7 +630,7 @@ with a picture of certificate attached to each one as authentication.
 
 ---
 
-## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> ARSENAL
+## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> ARSENAL
 
 Color is the grade, not decoration. Green means I built or broke something real with
 it, amber means I'm mid-way and would still reach for docs, gray means I've started and
@@ -750,7 +750,7 @@ that's all. No badge here is aspirational.
 
 ---
 
-## <img src="https://banyourself.github.io/assets/img/enchanted-book.gif" align="absmiddle" alt=""> DISCLOSURE ETHICS
+## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> DISCLOSURE ETHICS
 
 All of this ran on my own systems. I never touched an external device, never did
 anything illegal, and never went in with bad intent. Findings go to the developer or
