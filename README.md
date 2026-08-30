@@ -26,7 +26,7 @@ it'll give me a challenge. I like to find flaws, scope the impact it can cause i
 
 ## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
 
-Five bodies of work. Each one written up properly: what I found, why it happened,
+Six bodies of work. Each one written up properly: what I found, why it happened,
 how to fix it, and who I told. Full versions live on the
 **[portfolio](https://kevinle.tech)**.
 
@@ -304,7 +304,7 @@ a table here.
 
 </details>
 
-→ [Read the full writeups](https://kevinle.tech/#/case/MC-001)
+→ [Read the full writeups](https://kevinle.tech/case/MC-001)
 
 </details>
 
@@ -473,7 +473,7 @@ guarding only `player_spawn` left the round-start loop still granting protection
 
 Every fork is published with credits to the original author to the best of my abilities. I run every single one of these SourcePawn plugins on two CS:GO servers (NA/EU), and I help manage an active CS2 network at [edan.gg](https://edan.gg/).
 
-→ [Read the full writeups](https://kevinle.tech/#/case/CS-002)
+→ [Read the full writeups](https://kevinle.tech/case/CS-002)
 
 </details>
 
@@ -562,7 +562,7 @@ free.
 
 `Network Configuration` · `DNS & Domains` · `Load Balancing` · `Performance Configuration` · `Proxmox` · `Cloudflare`
 
-→ [Read the full writeups](https://kevinle.tech/#/case/SRV-003)
+→ [Read the full writeups](https://kevinle.tech/case/SRV-003)
 
 </details>
 
@@ -577,7 +577,7 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
 
 `Proxmox` · `pfSense` · `Suricata` · `Windows Server` · `Kali`
 
-→ [Topology and detection log](https://kevinle.tech/#/case/LAB-004)
+→ [Topology and detection log](https://kevinle.tech/case/LAB-004)
 
 </details>
 
@@ -594,7 +594,39 @@ Also documented honestly: what it does **not** catch. DoH walks straight past it
 
 `Raspberry Pi` · `Pi-hole` · `Unbound` · `DNS`
 
-→ [What the logs showed](https://kevinle.tech/#/case/DNS-005)
+→ [What the logs showed](https://kevinle.tech/case/DNS-005)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 006 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
+
+<br>
+
+Hand written, no framework and no build step, because most templates and site
+builders hand you the same layout with different colors on it. Runs at
+[kevinle.tech](https://kevinle.tech) and, from the same repo, at
+[banyourself.github.io](https://banyourself.github.io/). Two themes, a case file dossier and a Minecraft GUI, off one
+`data-theme` attribute.
+
+The bug worth telling you about is one my own security header caused. The
+decorative layer was dead in production for weeks: `style-src` has no
+`unsafe-inline`, so the browser refused every `setAttribute("style", ...)` the
+animation code wrote. Thirty particles stacked in one corner with a zero second
+duration.
+
+It survived because **it worked on my machine**. The dev server sends no security
+headers, so the policy only existed in production. I found it by copying the site,
+injecting the real policy as a `<meta>` tag and serving that. Same code went from
+1 distinct position across 30 particles to 28.
+
+The fix is that the CSSOM path is not blocked, only markup attributes are, so
+`style.cssText` works where `setAttribute` does not. The lesson I actually kept is
+that a security control which only exists in production is one you are not testing.
+
+`HTML` &middot; `CSS` &middot; `Vanilla JS` &middot; `Security Headers` &middot; `Cloudflare Workers`
+
+&rarr; [How it is built](https://kevinle.tech/case/WEB-006)
 
 </details>
 
