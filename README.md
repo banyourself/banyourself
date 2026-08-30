@@ -649,12 +649,7 @@ that a security control which only exists in production is one you are not testi
       SC-500   Cloud and AI Security Engineer ................................. Aug 2026
       SC-200   Security Operations Analyst .................................... May 2026
 
-  IN PROGRESS
-
-      SC-100   Microsoft Cybersecurity Architect
-      CISSP    ISC2 Certified Information Systems Security Professional
-
-  COURSES COMPLETED                                    not certifications, listed apart
+  ADDITIONAL CERTIFICATES COMPLETED              a certificate is not a certification
 
       CompTIA stacks .......... Security Analytics (CSAP), Network Infrastructure (CNIP)
       Google .................. Cybersecurity, IT Support
@@ -662,6 +657,11 @@ that a security control which only exists in production is one you are not testi
       IBM ..................... Cybersecurity Fundamentals
       AWS ..................... Educate: Security, Networking, Cloud
       ISC2 .................... Candidate
+
+  IN PROGRESS
+
+      SC-100   Microsoft Cybersecurity Architect
+      CISSP    ISC2 Certified Information Systems Security Professional
 ```
 
 Exam codes are included and the issue date as well. All CompTIA badges verifiable on
