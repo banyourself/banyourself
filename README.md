@@ -653,6 +653,15 @@ that a security control which only exists in production is one you are not testi
 
       SC-100   Microsoft Cybersecurity Architect
       CISSP    ISC2 Certified Information Systems Security Professional
+
+  COURSES COMPLETED                                    not certifications, listed apart
+
+      CompTIA stacks .......... Security Analytics (CSAP), Network Infrastructure (CNIP)
+      Google .................. Cybersecurity, IT Support
+      Cisco ................... Python Essentials 1 & 2
+      IBM ..................... Cybersecurity Fundamentals
+      AWS ..................... Educate: Security, Networking, Cloud
+      ISC2 .................... Candidate
 ```
 
 Exam codes are included and the issue date as well. All CompTIA badges verifiable on
