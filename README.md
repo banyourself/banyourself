@@ -18,7 +18,7 @@ it'll give me a challenge. I like to find flaws, scope the impact it can cause i
   <a href="https://kevinle.tech"><img src="https://img.shields.io/badge/PORTFOLIO-9c2b21?style=for-the-badge" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/kevin-le-cyber"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge" alt="LinkedIn"></a>
   <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-FF6B00?style=for-the-badge&logo=credly&logoColor=white" alt="Credly"></a>
-  <a href="mailto:publicusekevin@gmail.com"><img src="https://img.shields.io/badge/GMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"></a>
+  <a href="mailto:kevin@kevinle.tech"><img src="https://img.shields.io/badge/EMAIL-9c2b21?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email"></a>
   <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
 </p>
 
@@ -662,6 +662,18 @@ that a security control which only exists in production is one you are not testi
 
       SC-100   Microsoft Cybersecurity Architect
       CISSP    ISC2 Certified Information Systems Security Professional
+
+  SCHOLARSHIPS
+
+      Microsoft Cybersecurity Scholarship ......... Last Mile Education Fund, Aug 2025
+      Cybersecurity Scholarship ................... Women in Cloud, Sep 2025
+      Osher Scholars Award I ...................... Bernard Osher Foundation, Apr 2026
+
+  LEADERSHIP
+
+      Secretary ................................... WiCyS Student Chapter, Coastline
+      Treasurer ................................... Associated Student Government
+      President ................................... E-Sports Club
 ```
 
 Exam codes are included and the issue date as well. All CompTIA badges verifiable on
@@ -754,6 +766,17 @@ that's all. No badge here is aspirational.
   <img src="https://img.shields.io/badge/Git_/_GitHub-3d6349?style=for-the-badge&logo=github&logoColor=white" alt="Git / GitHub">
   <img src="https://img.shields.io/badge/Secrets_hygiene-3d6349?style=for-the-badge" alt="Secrets hygiene">
   <img src="https://img.shields.io/badge/C_/_memory_safety-7a7263?style=for-the-badge" alt="C / memory safety">
+</p>
+
+**AI SECURITY**
+
+<p>
+  <img src="https://img.shields.io/badge/OWASP_LLM_Top_10-87701d?style=for-the-badge&logo=owasp&logoColor=white" alt="OWASP LLM Top 10">
+  <img src="https://img.shields.io/badge/Prompt_injection_%28direct_%26_indirect%29-87701d?style=for-the-badge" alt="Prompt injection (direct & indirect)">
+  <img src="https://img.shields.io/badge/Excessive_agency-87701d?style=for-the-badge" alt="Excessive agency">
+  <img src="https://img.shields.io/badge/MCP_server_authorization-87701d?style=for-the-badge" alt="MCP server authorization">
+  <img src="https://img.shields.io/badge/Tool_poisoning-87701d?style=for-the-badge" alt="Tool poisoning">
+  <img src="https://img.shields.io/badge/SAST_on_AI--generated_code-87701d?style=for-the-badge" alt="SAST on AI-generated code">
 </p>
 
 **GOVERNANCE & SUPPORT**
