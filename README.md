@@ -15,11 +15,11 @@ It's fun looking for vulnerabilities in the games I play everyday just because
 it'll give me a challenge. I like to find flaws, scope the impact it can cause if exploited, create a patch, and then report the vulnerability to put my name out there!
 
 <p>
-  <a href="https://kevinle.tech"><img src="https://img.shields.io/badge/PORTFOLIO-9c2b21?style=for-the-badge" alt="Portfolio"></a>
+  <a href="https://kevinle.tech"><img src="https://img.shields.io/badge/PORTFOLIO-b3261e?style=for-the-badge" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/kevin-le-cyber"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge" alt="LinkedIn"></a>
-  <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-FF6B00?style=for-the-badge&logo=credly&logoColor=white" alt="Credly"></a>
-  <a href="mailto:kevin@kevinle.tech"><img src="https://img.shields.io/badge/EMAIL-9c2b21?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email"></a>
-  <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-9c2b21?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
+  <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-4a5766?style=for-the-badge&logo=credly&logoColor=white" alt="Credly"></a>
+  <a href="mailto:kevin@kevinle.tech"><img src="https://img.shields.io/badge/EMAIL-3d6349?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email"></a>
+  <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-f0b429?style=for-the-badge&logo=adobeacrobatreader&logoColor=333" alt="Resume (PDF)"></a>
 </p>
 
 ---
