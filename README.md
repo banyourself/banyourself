@@ -567,38 +567,6 @@ free.
 </details>
 
 <details>
-<summary><b>CASE FILE 004 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
-
-<br>
-
-A segmented lab where I run attacks against myself and then try to catch them in
-the logs. I keep a detection log with three columns: what I ran, what fired, and
-**what didn't fire and why**. The third column is the one I actually learn from.
-
-`Proxmox` · `pfSense` · `Suricata` · `Windows Server` · `Kali`
-
-→ [Topology and detection log](https://kevinle.tech/case/LAB-004)
-
-</details>
-
-<details>
-<summary><b>CASE FILE 005 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
-
-<br>
-
-DNS sinkhole for the whole house. Started as an ad-blocker, turned into a lesson
-in how much a network says when nobody is listening, and in treating DNS as a
-detection surface rather than a convenience.
-
-Also documented honestly: what it does **not** catch. DoH walks straight past it.
-
-`Raspberry Pi` · `Pi-hole` · `Unbound` · `DNS`
-
-→ [What the logs showed](https://kevinle.tech/case/DNS-005)
-
-</details>
-
-<details>
 <summary><b>CASE FILE 006 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
 
 <br>
@@ -627,6 +595,38 @@ that a security control which only exists in production is one you are not testi
 `HTML` &middot; `CSS` &middot; `Vanilla JS` &middot; `Security Headers` &middot; `Cloudflare Workers`
 
 &rarr; [How it is built](https://kevinle.tech/case/WEB-006)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 005 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
+
+<br>
+
+DNS sinkhole for the whole house. Started as an ad-blocker, turned into a lesson
+in how much a network says when nobody is listening, and in treating DNS as a
+detection surface rather than a convenience.
+
+Also documented honestly: what it does **not** catch. DoH walks straight past it.
+
+`Raspberry Pi` · `Pi-hole` · `Unbound` · `DNS`
+
+→ [What the logs showed](https://kevinle.tech/case/DNS-005)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 004 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
+
+<br>
+
+A segmented lab where I run attacks against myself and then try to catch them in
+the logs. I keep a detection log with three columns: what I ran, what fired, and
+**what didn't fire and why**. The third column is the one I actually learn from.
+
+`Proxmox` · `pfSense` · `Suricata` · `Windows Server` · `Kali`
+
+→ [Topology and detection log](https://kevinle.tech/case/LAB-004)
 
 </details>
 
