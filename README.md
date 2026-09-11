@@ -672,7 +672,7 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
   LEADERSHIP
 
       Secretary ................................... WiCyS Student Chapter, Coastline
-      Treasurer ................................... Associated Student Government
+      Secretary ................................... Associated Student Government
       President ................................... E-Sports Club
 ```
 
