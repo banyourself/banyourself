@@ -25,9 +25,12 @@ they ship the fix.
   <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-c2410c?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
 </p>
 
-**211 ungated packets found across 64 Forge mods, then reported. One fix shipped and
-credited in a mod with 20M+ downloads.**
-[Commit](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a)
+**211 ungated packets found across 64 Forge mods, then reported. Two maintainers shipped
+fixes and credited me, in mods with 20M+ and 29.1M downloads. One published a GitHub
+security advisory naming me as the finder.**
+[GHSA-x6cg-7cqm-2pqf](https://github.com/TinyModularThings/Chunk-Pregenerator-Issue-Tracker/security/advisories/GHSA-x6cg-7cqm-2pqf)
+&nbsp;·&nbsp;
+[Trinkets commit](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a)
 &nbsp;·&nbsp;
 [CurseForge release](https://www.curseforge.com/minecraft/mc-mods/trinkets-and-baubles/files/8703456)
 
@@ -58,7 +61,7 @@ what the packet actually lets you do.
 
 | Severity | Mods | Packets | What it means | Status |
 |:--|:--|:--|:--|:--|
-| **Critical** | 4 | 9 | Wipes a whole dimension, or reaches level-2 command execution | **1 of 4 shipped and credited**, rest reported |
+| **Critical** | 4 | 9 | Wipes a whole dimension, or reaches level-2 command execution | **2 of 4 shipped and credited**, rest reported |
 | High | 22 | 60 | Changes any entity or tile by ID, arbitrary teleport, or attack with no reach check | Reported, fix committed |
 | Medium | 13 | 29 | Self-contained or read-only, but the gate is still missing | Reported, fix committed |
 | Low | 25 | 113 | `Side.CLIENT` so a client cannot send it, a no-op handler, or self-only | Reported, fix committed |
@@ -75,6 +78,18 @@ That mod has 20M+ downloads on its own.
 <img src="https://kevinle.tech/assets/img/trinkets-credit-curseforge.webp" alt="CurseForge release notes for 0.33.4, crediting the packet exploit report and hardening the network packets">
 
 <img src="https://kevinle.tech/assets/img/trinkets-credit-discord.webp" alt="The maintainer's reply the same day the report was sent">
+
+**Chunk-Pregenerator shipped the fix and published an advisory crediting me.** The
+maintainer (Speiger) released [GHSA-x6cg-7cqm-2pqf](https://github.com/TinyModularThings/Chunk-Pregenerator-Issue-Tracker/security/advisories/GHSA-x6cg-7cqm-2pqf) on 2026-08-27, naming me as the
+finder, and patched every supported branch at once: 4.4.9.3 for 1.7.10 to 1.12.2, 4.5.4 for
+1.19.2/1.20.1/1.21.1, 4.4.7 for 1.20.5, and 4.4.6 for 1.14.4 to 1.21.x. That mod has 29.1M
+downloads and nine years of history.
+
+The advisory is graded Moderate, CVSS 4.3 `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L`,
+and it covers the packets the maintainer fixed: `DiscPacket`, `MemoryPacket`,
+`ProgressPacket.Cancel`, `RetrogenPacket.Sync`, `SyncStatePacket` and `ServerMapPacket`.
+Their changelog is explicit that no remote code execution was reachable. I graded 2.5.1 on
+the 1.12.2 line higher than that. Where our numbers disagree, theirs is the one that shipped.
 
 The low tier matters as much as the top one. Most of those turned out to be registered
 server-to-client, which means a client cannot forge them at all, and calling those
@@ -805,6 +820,7 @@ that's all. No badge here is aspirational.
 
 - [x] CompTIA Security+, Network+, CySA+, Server+
 - [x] Microsoft SC-200 & SC-500
+- [x] Tracked two MC-001 findings through to a deployed patch: Trinkets & Baubles 0.33.4, and Chunk-Pregenerator across every supported branch with advisory GHSA-x6cg-7cqm-2pqf crediting me as finder
 - [x] Segmented home lab standing, attacks run against it, detections logged
 - [x] Pi-hole sinkhole live network-wide, including what it misses
 - [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *30M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. 64 mods and 211 total ungated packets found, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
@@ -816,7 +832,6 @@ that's all. No badge here is aspirational.
 
 **Next**
 
-- [ ] Track the reported MC-001 findings through to a deployed patch
 - [ ] A.S. Cybersecurity, Coastline College, 2027
 - [ ] Accepted and enrolling into a University for a bachelor's degree in Cybersecurity, IT, or Informatics
 - [ ] 2027 internship: Cybersecurity, IT, Cloud/Network Security, SOC, or Security Analyst field
