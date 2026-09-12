@@ -62,9 +62,9 @@ what the packet actually lets you do.
 | Severity | Mods | Packets | What it means | Status |
 |:--|:--|:--|:--|:--|
 | **Critical** | 4 | 9 | Wipes a whole dimension, or reaches level-2 command execution | **2 of 4 shipped and credited**, rest reported |
-| High | 22 | 60 | Changes any entity or tile by ID, arbitrary teleport, or attack with no reach check | Reported, fix committed |
-| Medium | 13 | 29 | Self-contained or read-only, but the gate is still missing | Reported, fix committed |
-| Low | 25 | 113 | `Side.CLIENT` so a client cannot send it, a no-op handler, or self-only | Reported, fix committed |
+| High | 22 | 60 | Changes any entity or tile by ID, arbitrary teleport, or attack with no reach check | Reported, fix committed to RLMixins2, ships with the next RLCraft update |
+| Medium | 13 | 29 | Self-contained or read-only, but the gate is still missing | Reported, fix committed to RLMixins2, ships with the next RLCraft update |
+| Low | 25 | 113 | `Side.CLIENT` so a client cannot send it, a no-op handler, or self-only | Reported, fix committed to RLMixins2, ships with the next RLCraft update |
 
 **Trinkets & Baubles shipped the fix and credited me.** Version 0.33.4 went out on
 2026-08-21 crediting "KL BanYourself" for reporting the packet exploits, and the same
@@ -86,10 +86,20 @@ finder, and patched every supported branch at once: 4.4.9.3 for 1.7.10 to 1.12.2
 downloads and nine years of history.
 
 The advisory is graded Moderate, CVSS 4.3 `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L`,
-and it covers the packets the maintainer fixed: `DiscPacket`, `MemoryPacket`,
-`ProgressPacket.Cancel`, `RetrogenPacket.Sync`, `SyncStatePacket` and `ServerMapPacket`.
-Their changelog is explicit that no remote code execution was reachable. I graded 2.5.1 on
-the 1.12.2 line higher than that. Where our numbers disagree, theirs is the one that shipped.
+and it lists only what lives in the modern code: `DiscPacket`, `MemoryPacket`,
+`ProgressPacket.Cancel`, `RetrogenPacket.Sync`, `SyncStatePacket` and `ServerMapPacket`. The
+world-destructive packets I graded critical are deliberately absent from it. Those sit in the
+older version RLCraft still pins, and the maintainer chose not to name them publicly rather
+than hand a working exploit to every server still running it. The patch covers them, the
+writeup does not.
+
+<img src="https://kevinle.tech/assets/img/pregen-credit-advisory.webp" alt="The GHSA-x6cg-7cqm-2pqf advisory page, graded Moderate 4.3, crediting banyourself as finder">
+
+<img src="https://kevinle.tech/assets/img/pregen-credit-thanks.webp" alt="The advisory credits section thanking banyourself for the networking review">
+
+<img src="https://kevinle.tech/assets/img/pregen-credit-changelog.webp" alt="CurseForge release notes crediting Banyourself and listing every packet the security patch fixed">
+
+<img src="https://kevinle.tech/assets/img/pregen-credit-curseforge.webp" alt="The Chunk-Pregenerator CurseForge page showing 29,184,451 downloads and the patched 4.5.4 release">
 
 The low tier matters as much as the top one. Most of those turned out to be registered
 server-to-client, which means a client cannot forge them at all, and calling those
