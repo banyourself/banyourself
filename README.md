@@ -1,4 +1,3 @@
-<!-- repo named exactly `banyourself`, as README.md at the root. -->
 <!-- Banner is built by tools/build_mc_banner.py in the kevinle.tech repo -->
 
 <img src="https://kevinle.tech/assets/img/mc-banner.gif" alt="Kevin Le, Security Operations and Cloud Security">
