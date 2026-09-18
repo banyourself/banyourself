@@ -7,7 +7,7 @@
   SUBJECT .............. Le, Kevin · @banyourself
   LOCATION ............. Westminster, California
   AUTHORIZATION ........ Authorized to work in the U.S. without sponsorship
-  EDUCATION ............ Coastline College, A.S. Cybersecurity, class of 2027 · GPA 3.54
+  EDUCATION ............ Coastline College, A.S. Cybersecurity, class of 2027 · GPA 3.75
   CREDENTIALS .......... CompTIA ×4 · Microsoft ×2 · & MORE · 2 in progress
   STATUS ............... Seeking 2027 Internship for Cyber · IT · Cloud/Network Security · & MORE
 ```
