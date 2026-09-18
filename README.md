@@ -27,12 +27,12 @@ they ship the fix.
 
 **211 ungated packets found across 64 Forge mods, then reported. Two maintainers shipped
 fixes and credited me, in mods with 20M+ and 29.1M downloads. One published a GitHub
-security advisory naming me as the finder.**
-[GHSA-x6cg-7cqm-2pqf](https://github.com/TinyModularThings/Chunk-Pregenerator-Issue-Tracker/security/advisories/GHSA-x6cg-7cqm-2pqf)
+security advisory naming me as the finder;**
+[Chunk Pregenerator Credit](https://github.com/TinyModularThings/Chunk-Pregenerator-Issue-Tracker/security/advisories/GHSA-x6cg-7cqm-2pqf)
 &nbsp;·&nbsp;
-[Trinkets commit](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a)
+[Trinkets Credit Commit](https://github.com/XzeroAir/Trinkets/commit/e07d279901cbf64c85d1adee7dd7aa60284a840a)
 &nbsp;·&nbsp;
-[CurseForge release](https://www.curseforge.com/minecraft/mc-mods/trinkets-and-baubles/files/8703456)
+[Trinkets CurseForge Release](https://www.curseforge.com/minecraft/mc-mods/trinkets-and-baubles/files/8703456)
 
 ---
 
