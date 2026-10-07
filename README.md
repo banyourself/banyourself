@@ -21,6 +21,8 @@ they ship the fix.
   <a href="https://kevinle.tech"><img src="https://img.shields.io/badge/PORTFOLIO-b3261e?style=for-the-badge" alt="Portfolio"></a>
   <a href="https://www.linkedin.com/in/kevin-le-cyber"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge" alt="LinkedIn"></a>
   <a href="https://www.credly.com/users/kevin-le-cyber"><img src="https://img.shields.io/badge/CREDLY-f5c518?style=for-the-badge&logo=credly&logoColor=333" alt="Credly"></a>
+  <a href="https://scamcam.kevinle.tech"><img src="https://img.shields.io/badge/SCAMCAM-1a1203?style=for-the-badge" alt="ScamCam"></a>
+  <a href="https://minutes.kevinle.tech"><img src="https://img.shields.io/badge/LIVE%20MINUTES-3f7fe0?style=for-the-badge" alt="Live Minutes"></a>
   <a href="mailto:kevin@kevinle.tech"><img src="https://img.shields.io/badge/EMAIL-3d6349?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email"></a>
   <a href="https://kevinle.tech/assets/LE_KEVIN_RESUME.pdf"><img src="https://img.shields.io/badge/RESUME-c2410c?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume (PDF)"></a>
 </p>
@@ -38,12 +40,64 @@ security advisory naming me as the finder;**
 
 ## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
 
-Six bodies of work. Each one written up properly: what I found, why it happened,
+Eight bodies of work. Each one written up properly: what I found, why it happened,
 how to fix it, and who I told. Full versions live on the
 **[portfolio](https://kevinle.tech)**.
 
 <details>
-<summary><b>CASE FILE 001 &nbsp;·&nbsp; Modded Minecraft - Missing Packet Authorization</b> &nbsp;<code>vuln research</code></summary>
+<summary><b>CASE FILE 001 &nbsp;&middot;&nbsp; ScamCam - Check the Scan</b> &nbsp;<code>detection engineering</code></summary>
+
+<br>
+
+A free scam checker at **[scamcam.kevinle.tech](https://scamcam.kevinle.tech)** for links, messages,
+screenshots, email files, and Minecraft mods. It shows the evidence behind every answer
+instead of a score, and it runs on Cloudflare for $0 a month.
+
+- 48 message rules across 24 scam families, look-alike and punycode domain detection, and
+  checks against Google Safe Browsing, URLhaus, Spamhaus, RDAP, MalwareBazaar, and Modrinth.
+- An AI step that only runs when the rules cannot decide and can only add warnings. Input is
+  fenced and the output is parsed against an allowlist (**CWE-1427**). On messages held out of
+  tuning, rules alone caught 3 of 20 scams and rules plus AI caught 16 of 20, with zero false alarms.
+- Defends against hacked developer accounts: a Modrinth release earns trust only after 14 days
+  in a reviewed project with nothing malware-like inside, because fractureiser spread through
+  exactly that kind of brand new update.
+- Files are read on the device and only hashes leave it, nothing pasted is stored, every scan
+  passes Turnstile tied to the hostname plus an IPv6 /64-aware rate limit, and shared reports
+  are AES-GCM encrypted with a key the server never keeps.
+
+`TypeScript` &middot; `Cloudflare Workers` &middot; `Durable Objects` &middot; `D1` &middot; `Turnstile` &middot; `Workers AI`
+
+&rarr; [Full writeup](https://kevinle.tech/case/SC-001)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 002 &nbsp;&middot;&nbsp; Live Minutes - Meeting Minutes for Student Government</b> &nbsp;<code>appsec</code></summary>
+
+<br>
+
+I am my student government's secretary, so I built **[Live Minutes](https://minutes.kevinle.tech)**:
+AI drafts meeting minutes from Zoom captions, transcripts, and chat, and a person always
+approves them. It is multi-tenant, holds FERPA-covered records, and treats every input as hostile.
+
+- Passwords hashed with scrypt, checked against breach data with k-anonymity, and timing-equalized
+  for unknown emails. Sessions are hashed server side in `__Host-` HttpOnly cookies, with a CSRF header.
+- TOTP two-step sign-in with replay protection and hashed single-use recovery codes. A password
+  reset never skips the second step.
+- Prompt injection fencing for transcripts (**CWE-1427**), and SSRF blocking with DNS pinning for
+  custom AI servers (**CWE-918**), so a hostname cannot rebind to a private address mid-request.
+- A read-only Zoom OAuth app with HMAC-verified webhooks, and a row lock that fixes a refresh token
+  race (**CWE-367**). Role checks on every organization route (**CWE-639**).
+- Runs on a free Oracle Cloud VM behind a Cloudflare Tunnel with no open ports. 177 automated tests.
+
+`Python` &middot; `FastAPI` &middot; `PostgreSQL` &middot; `React` &middot; `Docker` &middot; `Zoom API`
+
+&rarr; [Full writeup](https://kevinle.tech/case/LM-002)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 003 &nbsp;·&nbsp; Modded Minecraft - Missing Packet Authorization</b> &nbsp;<code>vuln research</code></summary>
 
 <br>
 
@@ -343,7 +397,7 @@ a table here.
 </details>
 
 <details>
-<summary><b>CASE FILE 002 &nbsp;·&nbsp; CS:GO Server Plugins - Anti-Cheat, Anti-VPN, Gamemodes</b> &nbsp;<code>defensive tooling</code></summary>
+<summary><b>CASE FILE 004 &nbsp;·&nbsp; CS:GO Server Plugins - Anti-Cheat, Anti-VPN, Gamemodes</b> &nbsp;<code>defensive tooling</code></summary>
 
 <br>
 
@@ -512,7 +566,7 @@ Every fork is published with credits to the original author to the best of my ab
 </details>
 
 <details>
-<summary><b>CASE FILE 003 &nbsp;·&nbsp; Minecraft & CS:GO Servers - Config and Network Management</b> &nbsp;<code>infrastructure</code></summary>
+<summary><b>CASE FILE 005 &nbsp;·&nbsp; Minecraft & CS:GO Servers - Config and Network Management</b> &nbsp;<code>infrastructure</code></summary>
 
 <br>
 
@@ -601,7 +655,7 @@ free.
 </details>
 
 <details>
-<summary><b>CASE FILE 004 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
+<summary><b>CASE FILE 006 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
 
 <br>
 
@@ -633,7 +687,7 @@ that a security control which only exists in production is one you are not testi
 </details>
 
 <details>
-<summary><b>CASE FILE 005 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
+<summary><b>CASE FILE 007 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
 
 <br>
 
@@ -643,14 +697,14 @@ detection surface rather than a convenience.
 
 Also documented honestly: what it does **not** catch. DoH walks straight past it.
 
-`Raspberry Pi` · `Pi-hole` · `Unbound` · `DNS`
+`Raspberry Pi` · `Pi-hole` · `dnsmasq` · `DHCP` · `DNS`
 
 → [What the logs showed](https://kevinle.tech/case/DNS-005)
 
 </details>
 
 <details>
-<summary><b>CASE FILE 006 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
+<summary><b>CASE FILE 008 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
 
 <br>
 
@@ -658,7 +712,7 @@ A segmented lab where I run attacks against myself and then try to catch them in
 the logs. I keep a detection log with three columns: what I ran, what fired, and
 **what didn't fire and why**. The third column is the one I actually learn from.
 
-`Proxmox` · `pfSense` · `Suricata` · `Windows Server` · `Kali`
+`VirtualBox` · `Kali Linux` · `Windows 10` · `Splunk` · `nmap`
 
 → [Topology and detection log](https://kevinle.tech/case/LAB-006)
 
@@ -701,13 +755,13 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
 
       Microsoft Cybersecurity Scholarship ......... Last Mile Education Fund, Aug 2025
       Cybersecurity Scholarship ................... Women in Cloud, Sep 2025
-      Osher Scholars Award I ...................... Bernard Osher Foundation, Apr 2026
+      Osher Scholars Award I ...................... Coastline College, Apr 2026
 
   LEADERSHIP
 
       President ................................... E-Sports Club
+      Vice President .............................. Women in Cybersecurity Student Chapter, Coastline
       Secretary ................................... Associated Student Government
-      Secretary ................................... WiCyS Student Chapter, Coastline
 ```
 
 Exam codes are included and the issue date as well. All CompTIA badges verifiable on
