@@ -1,0 +1,61 @@
+name: Uptime
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check kevinle.tech, ScamCam, and Live Minutes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -u
+          gh label create uptime --color B60205 --description "A site failed its uptime check" >/dev/null 2>&1 || true
+
+          status_of() {
+            local url="$1" code=""
+            for attempt in 1 2 3; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 -A "kevinle-uptime-check" "$url" || true)
+              [ "$code" = "200" ] && { echo 200; return; }
+              sleep 20
+            done
+            echo "${code:-000}"
+          }
+
+          while IFS='|' read -r name url; do
+            code=$(status_of "$url")
+            title="Down: $name"
+            open=$(gh issue list --label uptime --state open --search "\"$title\" in:title" --json number,title \
+              --jq ".[] | select(.title == \"$title\") | .number" | head -n 1)
+            now=$(date -u +"%Y-%m-%d %H:%M UTC")
+            if [ "$code" = "200" ]; then
+              echo "up    $name"
+              if [ -n "$open" ]; then
+                gh issue close "$open" --comment "Back up at $now."
+              fi
+            else
+              echo "DOWN  $name ($code)"
+              if [ -z "$open" ]; then
+                gh issue create --label uptime --title "$title" \
+                  --body "$url answered $code at $now after three tries, 20 seconds apart. This issue closes itself when the site is back."
+              fi
+            fi
+          done <<'SITES'
+          kevinle.tech|https://kevinle.tech/
+          ScamCam|https://scamcam.kevinle.tech/api/v1/health
+          Live Minutes|https://minutes.kevinle.tech/api/ready
+          SITES
