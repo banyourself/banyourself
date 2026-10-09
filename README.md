@@ -40,7 +40,7 @@ security advisory naming me as the finder;**
 
 ## <img src="https://kevinle.tech/assets/img/enchanted-book.gif" align="absmiddle" alt=""> CASE FILES
 
-Eight bodies of work. Each one written up properly: what I found, why it happened,
+Nine bodies of work. Each one written up properly: what I found, why it happened,
 how to fix it, and who I told. Full versions live on the
 **[portfolio](https://kevinle.tech)**.
 
@@ -64,6 +64,12 @@ instead of a score, and it runs on Cloudflare for $0 a month.
 - Files are read on the device and only hashes leave it, nothing pasted is stored, every scan
   passes Turnstile tied to the hostname plus an IPv6 /64-aware rate limit, and shared reports
   are AES-GCM encrypted with a key the server never keeps.
+- A Breach check page: passwords checked by k-anonymity, so only 5 characters of a SHA-1 hash
+  leave the device, a passphrase maker that uses rejection sampling, and a site lookup the
+  browser searches on its own. Discord, Roblox, Steam, and GitHub login tokens are stripped in
+  the browser before anything is sent.
+- 890 Vitest tests and 34 config tests on 2026-10-09, and an A+ (135) from the MDN HTTP
+  Observatory the same day.
 
 `TypeScript` &middot; `Cloudflare Workers` &middot; `Durable Objects` &middot; `D1` &middot; `Turnstile` &middot; `Workers AI`
 
@@ -88,7 +94,10 @@ approves them. It is multi-tenant, holds FERPA-covered records, and treats every
   custom AI servers (**CWE-918**), so a hostname cannot rebind to a private address mid-request.
 - A read-only Zoom OAuth app with HMAC-verified webhooks, and a row lock that fixes a refresh token
   race (**CWE-367**). Role checks on every organization route (**CWE-639**).
-- Runs on a free Oracle Cloud VM behind a Cloudflare Tunnel with no open ports. 177 automated tests.
+- Nightly backups are sealed with X25519 and AES-256-GCM before they go to Cloudflare R2, so the
+  server cannot read its own offsite copies.
+- Runs on a free Oracle Cloud VM behind a Cloudflare Tunnel with no open ports, with a free
+  open model on the same VM for anyone without an AI key. 189 server tests and 21 engine tests.
 
 `Python` &middot; `FastAPI` &middot; `PostgreSQL` &middot; `React` &middot; `Docker` &middot; `Zoom API`
 
@@ -401,7 +410,7 @@ a table here.
 
 <br>
 
-Fourteen SourcePawn plugins and one C++ Metamod extension for the CS:GO servers I run.
+Thirteen SourcePawn plugins and one C++ Metamod extension for the CS:GO servers I run.
 Roughly 30,000 lines of SourcePawn plus 800 of C++. Grouped below so you can open only
 the part you care about.
 
@@ -659,7 +668,7 @@ free.
 
 <br>
 
-Hand written, no framework and no build step, because most templates and site
+Hand written, with no framework, no bundler, and no npm dependencies, because most templates and site
 builders hand you the same layout with different colors on it. Runs at
 [kevinle.tech](https://kevinle.tech) and, from the same repo, at
 [banyourself.github.io](https://banyourself.github.io/). Two themes, a case file dossier and a Minecraft GUI, off one
@@ -680,7 +689,12 @@ The fix is that the CSSOM path is not blocked, only markup attributes are, so
 `style.cssText` works where `setAttribute` does not. The lesson I actually kept is
 that a security control which only exists in production is one you are not testing.
 
-`HTML` &middot; `CSS` &middot; `Vanilla JS` &middot; `Security Headers` &middot; `Cloudflare Workers`
+It is run like production: a Worker gives every case its own metadata and real 404s and
+honors Global Privacy Control, a second Worker checks my three sites every 5 minutes and opens
+and closes its own GitHub issues, and on 2026-10-09 the site passed all 21 checks of my live
+audit and held an A+ (140) from the MDN HTTP Observatory.
+
+`HTML` &middot; `CSS` &middot; `Vanilla JS` &middot; `Security Headers` &middot; `Cloudflare Workers` &middot; `Uptime Monitoring`
 
 &rarr; [How it is built](https://kevinle.tech/case/WEB-004)
 
@@ -715,6 +729,34 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
 `VirtualBox` · `Kali Linux` · `Windows 10` · `Splunk` · `nmap`
 
 → [Topology and detection log](https://kevinle.tech/case/LAB-006)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 009 &nbsp;&middot;&nbsp; Letter Merger - Donor Thank-You Cards from a CSV</b> &nbsp;<code>secure file handling</code></summary>
+
+<br>
+
+A Windows desktop app I built for my college's foundation team. It turns the scholarship CSV
+export and a folder of student photos into Word A7 donor thank-you cards, in a Coastline
+edition and a generic edition that share one merge engine. Every input is a file someone else
+produced, and every output names a real student.
+
+- Photo paths are contained to one folder, with rooted paths, `..` segments, and reparse
+  points refused (**CWE-22**). Images are signature-checked before parsing and redrawn as new
+  PNGs, so camera and location metadata never reaches a donor.
+- The Word template must match an allowlisted part list and a SHA-256 pinned frame. Macros,
+  `DDE` fields, external relationships, and XML entities are refused (**CWE-611**), and report
+  cells are formula-safe (**CWE-1236**).
+- Every finished card is reopened and compared with its CSV row before the file gets its final
+  name. Word opens it read-only with macros forced off.
+- No network code at all. A default-deny `.gitignore` and a pinned-inventory audit keep student
+  data out of Git, and both executables rebuild byte for byte from source. On 2026-10-09 both
+  editions passed all 62 core checks.
+
+`C#` &middot; `.NET Framework 4.8` &middot; `Open XML` &middot; `Windows Forms` &middot; `Python`
+
+&rarr; [Full writeup](https://kevinle.tech/case/LTR-009)
 
 </details>
 
@@ -787,12 +829,12 @@ that's all. No badge here is aspirational.
   <img src="https://img.shields.io/badge/Log_analysis-3d6349?style=for-the-badge" alt="Log analysis">
   <img src="https://img.shields.io/badge/Pi--hole_/_DNS_sinkholing-3d6349?style=for-the-badge&logo=pihole&logoColor=white" alt="Pi-hole / DNS sinkholing">
   <img src="https://img.shields.io/badge/Wireshark_/_tcpdump-3d6349?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark / tcpdump">
+  <img src="https://img.shields.io/badge/MITRE_ATT%26CK-3d6349?style=for-the-badge" alt="MITRE ATT&CK">
   <img src="https://img.shields.io/badge/Microsoft_Sentinel-87701d?style=for-the-badge" alt="Microsoft Sentinel">
   <img src="https://img.shields.io/badge/Microsoft_Defender_XDR-87701d?style=for-the-badge" alt="Microsoft Defender XDR">
   <img src="https://img.shields.io/badge/SIEM_%28Splunk%2C_QRadar%29-87701d?style=for-the-badge&logo=splunk&logoColor=white" alt="SIEM (Splunk, QRadar)">
   <img src="https://img.shields.io/badge/Suricata_/_Snort-87701d?style=for-the-badge" alt="Suricata / Snort">
   <img src="https://img.shields.io/badge/Incident_response-87701d?style=for-the-badge" alt="Incident response">
-  <img src="https://img.shields.io/badge/MITRE_ATT%26CK-87701d?style=for-the-badge" alt="MITRE ATT&CK">
   <img src="https://img.shields.io/badge/EDR_%28Defender%2C_CrowdStrike%29-87701d?style=for-the-badge" alt="EDR (Defender, CrowdStrike)">
 </p>
 
@@ -887,6 +929,7 @@ that's all. No badge here is aspirational.
 - [x] Tracked two MC-001 findings through to a deployed patch: Trinkets & Baubles 0.33.4, and Chunk-Pregenerator across every supported branch with advisory GHSA-x6cg-7cqm-2pqf crediting me as finder
 - [x] Segmented home lab standing, attacks run against it, detections logged
 - [x] Pi-hole sinkhole live network-wide, including what it misses
+- [x] Shipped ScamCam and Live Minutes on free tiers, plus the Letter Merger for my college's foundation team, each written up as a case file
 - [x] Over 400+ modded Minecraft mods (.jar) from #1 most downloaded modpack (RLCraft *30M+ downloads* & RLCraft Dregora *1M downloads*) decompiled and scanned to find packets that are not permission gated. 64 mods and 211 total ungated packets found, reported to their developer & RLCraft development team, privately tested by me through a client-side mod (C2S), graded the severity of packets found based on their impact, and documented
 
 **In progress**
