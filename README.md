@@ -45,68 +45,7 @@ how to fix it, and who I told. Full versions live on the
 **[portfolio](https://kevinle.tech)**.
 
 <details>
-<summary><b>CASE FILE 001 &nbsp;&middot;&nbsp; ScamCam - Check the Scan</b> &nbsp;<code>detection engineering</code></summary>
-
-<br>
-
-A free scam checker at **[scamcam.kevinle.tech](https://scamcam.kevinle.tech)** for links, messages,
-screenshots, email files, and Minecraft mods. It shows the evidence behind every answer
-instead of a score, and it runs on Cloudflare for $0 a month.
-
-- 48 message rules across 24 scam families, look-alike and punycode domain detection, and
-  checks against Google Safe Browsing, URLhaus, Spamhaus, RDAP, MalwareBazaar, and Modrinth.
-- An AI step that only runs when the rules cannot decide and can only add warnings. Input is
-  fenced and the output is parsed against an allowlist (**CWE-1427**). On messages held out of
-  tuning, rules alone caught 3 of 20 scams and rules plus AI caught 16 of 20, with zero false alarms.
-- Defends against hacked developer accounts: a Modrinth release earns trust only after 14 days
-  in a reviewed project with nothing malware-like inside, because fractureiser spread through
-  exactly that kind of brand new update.
-- Files are read on the device and only hashes leave it, nothing pasted is stored, every scan
-  passes Turnstile tied to the hostname plus an IPv6 /64-aware rate limit, and shared reports
-  are AES-GCM encrypted with a key the server never keeps.
-- A Breach check page: passwords checked by k-anonymity, so only 5 characters of a SHA-1 hash
-  leave the device, a passphrase maker that uses rejection sampling, and a site lookup the
-  browser searches on its own. Discord, Roblox, Steam, and GitHub login tokens are stripped in
-  the browser before anything is sent.
-- 890 Vitest tests and 34 config tests on 2026-10-09, and an A+ (135) from the MDN HTTP
-  Observatory the same day.
-
-`TypeScript` &middot; `Cloudflare Workers` &middot; `Durable Objects` &middot; `D1` &middot; `Turnstile` &middot; `Workers AI`
-
-&rarr; [Full writeup](https://kevinle.tech/case/SC-001)
-
-</details>
-
-<details>
-<summary><b>CASE FILE 002 &nbsp;&middot;&nbsp; Live Minutes - Meeting Minutes for Student Government</b> &nbsp;<code>appsec</code></summary>
-
-<br>
-
-I am my student government's secretary, so I built **[Live Minutes](https://minutes.kevinle.tech)**:
-AI drafts meeting minutes from Zoom captions, transcripts, and chat, and a person always
-approves them. It is multi-tenant, holds FERPA-covered records, and treats every input as hostile.
-
-- Passwords hashed with scrypt, checked against breach data with k-anonymity, and timing-equalized
-  for unknown emails. Sessions are hashed server side in `__Host-` HttpOnly cookies, with a CSRF header.
-- TOTP two-step sign-in with replay protection and hashed single-use recovery codes. A password
-  reset never skips the second step.
-- Prompt injection fencing for transcripts (**CWE-1427**), and SSRF blocking with DNS pinning for
-  custom AI servers (**CWE-918**), so a hostname cannot rebind to a private address mid-request.
-- A read-only Zoom OAuth app with HMAC-verified webhooks, and a row lock that fixes a refresh token
-  race (**CWE-367**). Role checks on every organization route (**CWE-639**).
-- Nightly backups are sealed with X25519 and AES-256-GCM before they go to Cloudflare R2, so the
-  server cannot read its own offsite copies.
-- Runs on a free Oracle Cloud VM behind a Cloudflare Tunnel with no open ports, with a free
-  open model on the same VM for anyone without an AI key. 189 server tests and 21 engine tests.
-
-`Python` &middot; `FastAPI` &middot; `PostgreSQL` &middot; `React` &middot; `Docker` &middot; `Zoom API`
-
-&rarr; [Full writeup](https://kevinle.tech/case/LM-002)
-
-</details>
-
-<details>
-<summary><b>CASE FILE 003 &nbsp;·&nbsp; Modded Minecraft - Missing Packet Authorization</b> &nbsp;<code>vuln research</code></summary>
+<summary><b>CASE FILE 001 &nbsp;·&nbsp; Modded Minecraft - Missing Packet Authorization</b> &nbsp;<code>vuln research</code></summary>
 
 <br>
 
@@ -406,7 +345,96 @@ a table here.
 </details>
 
 <details>
-<summary><b>CASE FILE 004 &nbsp;·&nbsp; CS:GO Server Plugins - Anti-Cheat, Anti-VPN, Gamemodes</b> &nbsp;<code>defensive tooling</code></summary>
+<summary><b>CASE FILE 002 &nbsp;&middot;&nbsp; Live Minutes - Meeting Minutes for Student Government</b> &nbsp;<code>appsec</code></summary>
+
+<br>
+
+I am my student government's secretary, so I built **[Live Minutes](https://minutes.kevinle.tech)**:
+AI drafts meeting minutes from Zoom captions, transcripts, and chat, and a person always
+approves them. It is multi-tenant, holds FERPA-covered records, and treats every input as hostile.
+
+- Passwords hashed with scrypt, checked against breach data with k-anonymity, and timing-equalized
+  for unknown emails. Sessions are hashed server side in `__Host-` HttpOnly cookies, with a CSRF header.
+- TOTP two-step sign-in with replay protection and hashed single-use recovery codes. A password
+  reset never skips the second step.
+- Prompt injection fencing for transcripts (**CWE-1427**), and SSRF blocking with DNS pinning for
+  custom AI servers (**CWE-918**), so a hostname cannot rebind to a private address mid-request.
+- A read-only Zoom OAuth app with HMAC-verified webhooks, and a row lock that fixes a refresh token
+  race (**CWE-367**). Role checks on every organization route (**CWE-639**).
+- Nightly backups are sealed with X25519 and AES-256-GCM before they go to Cloudflare R2, so the
+  server cannot read its own offsite copies.
+- Runs on a free Oracle Cloud VM behind a Cloudflare Tunnel with no open ports, with a free
+  open model on the same VM for anyone without an AI key. 189 server tests and 21 engine tests.
+
+`Python` &middot; `FastAPI` &middot; `PostgreSQL` &middot; `React` &middot; `Docker` &middot; `Zoom API`
+
+&rarr; [Full writeup](https://kevinle.tech/case/LM-002)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 003 &nbsp;&middot;&nbsp; ScamCam - Check the Scan</b> &nbsp;<code>detection engineering</code></summary>
+
+<br>
+
+A free scam checker at **[scamcam.kevinle.tech](https://scamcam.kevinle.tech)** for links, messages,
+screenshots, email files, and Minecraft mods. It shows the evidence behind every answer
+instead of a score, and it runs on Cloudflare for $0 a month.
+
+- 48 message rules across 24 scam families, look-alike and punycode domain detection, and
+  checks against Google Safe Browsing, URLhaus, Spamhaus, RDAP, MalwareBazaar, and Modrinth.
+- An AI step that only runs when the rules cannot decide and can only add warnings. Input is
+  fenced and the output is parsed against an allowlist (**CWE-1427**). On messages held out of
+  tuning, rules alone caught 3 of 20 scams and rules plus AI caught 16 of 20, with zero false alarms.
+- Defends against hacked developer accounts: a Modrinth release earns trust only after 14 days
+  in a reviewed project with nothing malware-like inside, because fractureiser spread through
+  exactly that kind of brand new update.
+- Files are read on the device and only hashes leave it, nothing pasted is stored, every scan
+  passes Turnstile tied to the hostname plus an IPv6 /64-aware rate limit, and shared reports
+  are AES-GCM encrypted with a key the server never keeps.
+- A Breach check page: passwords checked by k-anonymity, so only 5 characters of a SHA-1 hash
+  leave the device, a passphrase maker that uses rejection sampling, and a site lookup the
+  browser searches on its own. Discord, Roblox, Steam, and GitHub login tokens are stripped in
+  the browser before anything is sent.
+- 890 Vitest tests and 34 config tests on 2026-10-09, and an A+ (135) from the MDN HTTP
+  Observatory the same day.
+
+`TypeScript` &middot; `Cloudflare Workers` &middot; `Durable Objects` &middot; `D1` &middot; `Turnstile` &middot; `Workers AI`
+
+&rarr; [Full writeup](https://kevinle.tech/case/SC-001)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 004 &nbsp;&middot;&nbsp; Letter Merger - Donor Thank-You Cards from a CSV</b> &nbsp;<code>secure file handling</code></summary>
+
+<br>
+
+A Windows desktop app I built for my college's foundation team. It turns the scholarship CSV
+export and a folder of student photos into Word A7 donor thank-you cards, in a Coastline
+edition and a generic edition that share one merge engine. Every input is a file someone else
+produced, and every output names a real student.
+
+- Photo paths are contained to one folder, with rooted paths, `..` segments, and reparse
+  points refused (**CWE-22**). Images are signature-checked before parsing and redrawn as new
+  PNGs, so camera and location metadata never reaches a donor.
+- The Word template must match an allowlisted part list and a SHA-256 pinned frame. Macros,
+  `DDE` fields, external relationships, and XML entities are refused (**CWE-611**), and report
+  cells are formula-safe (**CWE-1236**).
+- Every finished card is reopened and compared with its CSV row before the file gets its final
+  name. Word opens it read-only with macros forced off.
+- No network code at all. A default-deny `.gitignore` and a pinned-inventory audit keep student
+  data out of Git, and both executables rebuild byte for byte from source. On 2026-10-09 both
+  editions passed all 62 core checks.
+
+`C#` &middot; `.NET Framework 4.8` &middot; `Open XML` &middot; `Windows Forms` &middot; `Python`
+
+&rarr; [Full writeup](https://kevinle.tech/case/LTR-009)
+
+</details>
+
+<details>
+<summary><b>CASE FILE 005 &nbsp;·&nbsp; CS:GO Server Plugins - Anti-Cheat, Anti-VPN, Gamemodes</b> &nbsp;<code>defensive tooling</code></summary>
 
 <br>
 
@@ -575,7 +603,7 @@ Every fork is published with credits to the original author to the best of my ab
 </details>
 
 <details>
-<summary><b>CASE FILE 005 &nbsp;·&nbsp; Minecraft & CS:GO Servers - Config and Network Management</b> &nbsp;<code>infrastructure</code></summary>
+<summary><b>CASE FILE 006 &nbsp;·&nbsp; Minecraft & CS:GO Servers - Config and Network Management</b> &nbsp;<code>infrastructure</code></summary>
 
 <br>
 
@@ -664,7 +692,7 @@ free.
 </details>
 
 <details>
-<summary><b>CASE FILE 006 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
+<summary><b>CASE FILE 007 &nbsp;&middot;&nbsp; kevinle.tech</b> &nbsp;<code>front end</code></summary>
 
 <br>
 
@@ -701,7 +729,7 @@ audit and held an A+ (140) from the MDN HTTP Observatory.
 </details>
 
 <details>
-<summary><b>CASE FILE 007 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
+<summary><b>CASE FILE 008 &nbsp;·&nbsp; Network-Wide DNS Filtering - Pi-hole on Raspberry Pi</b> &nbsp;<code>blue team</code></summary>
 
 <br>
 
@@ -718,7 +746,7 @@ Also documented honestly: what it does **not** catch. DoH walks straight past it
 </details>
 
 <details>
-<summary><b>CASE FILE 008 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
+<summary><b>CASE FILE 009 &nbsp;·&nbsp; Home Security Lab - Build & Detection Log</b> &nbsp;<code>blue team</code></summary>
 
 <br>
 
@@ -729,34 +757,6 @@ the logs. I keep a detection log with three columns: what I ran, what fired, and
 `VirtualBox` · `Kali Linux` · `Windows 10` · `Splunk` · `nmap`
 
 → [Topology and detection log](https://kevinle.tech/case/LAB-006)
-
-</details>
-
-<details>
-<summary><b>CASE FILE 009 &nbsp;&middot;&nbsp; Letter Merger - Donor Thank-You Cards from a CSV</b> &nbsp;<code>secure file handling</code></summary>
-
-<br>
-
-A Windows desktop app I built for my college's foundation team. It turns the scholarship CSV
-export and a folder of student photos into Word A7 donor thank-you cards, in a Coastline
-edition and a generic edition that share one merge engine. Every input is a file someone else
-produced, and every output names a real student.
-
-- Photo paths are contained to one folder, with rooted paths, `..` segments, and reparse
-  points refused (**CWE-22**). Images are signature-checked before parsing and redrawn as new
-  PNGs, so camera and location metadata never reaches a donor.
-- The Word template must match an allowlisted part list and a SHA-256 pinned frame. Macros,
-  `DDE` fields, external relationships, and XML entities are refused (**CWE-611**), and report
-  cells are formula-safe (**CWE-1236**).
-- Every finished card is reopened and compared with its CSV row before the file gets its final
-  name. Word opens it read-only with macros forced off.
-- No network code at all. A default-deny `.gitignore` and a pinned-inventory audit keep student
-  data out of Git, and both executables rebuild byte for byte from source. On 2026-10-09 both
-  editions passed all 62 core checks.
-
-`C#` &middot; `.NET Framework 4.8` &middot; `Open XML` &middot; `Windows Forms` &middot; `Python`
-
-&rarr; [Full writeup](https://kevinle.tech/case/LTR-009)
 
 </details>
 
@@ -793,11 +793,12 @@ produced, and every output names a real student.
       SC-100   Microsoft Cybersecurity Architect
       CISSP    ISC2 Certified Information Systems Security Professional
 
-  SCHOLARSHIPS
+  SCHOLARSHIPS & AWARDS
 
       Microsoft Cybersecurity Scholarship ......... Last Mile Education Fund, Aug 2025
       Cybersecurity Scholarship ................... Women in Cloud, Sep 2025
       Osher Scholars Award I ...................... Coastline College, Apr 2026
+      3rd Place, SentinelOne ThreatOps CTF ........ SentinelOne, Oct 2026
 
   LEADERSHIP
 
@@ -810,6 +811,15 @@ Exam codes are included and the issue date as well. All CompTIA badges verifiabl
 **[Credly](https://www.credly.com/users/kevin-le-cyber)**, the full list of certificates
 are on **[LinkedIn](https://www.linkedin.com/in/kevin-le-cyber/details/certifications/)**
 with a picture of certificate attached to each one as authentication.
+
+<p>
+  <img src="https://kevinle.tech/assets/img/sentinelone-threatops-coin.webp" width="120" align="left" alt="The SentinelOne Threat Ops Challenge coin">
+  <b>3rd Place, SentinelOne ThreatOps CTF (Threat Hunter).</b> At Coastline College's STORM Cyber &amp; AI Research
+  Symposium I used the Singularity Platform, MITRE ATT&amp;CK mappings, Storyline, and Purple AI to investigate malware
+  detections, analyze IOCs, correlate security events, and hunt threats. Instead of a digital badge, the prize was an
+  official SentinelOne Threat Hunter coin.
+</p>
+<br clear="left">
 
 ---
 
